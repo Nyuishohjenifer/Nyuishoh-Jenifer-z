@@ -1,0 +1,44 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+const double PI = 3.14159265;
+double cos_1(double x);
+double sin_1(double x);
+double tan_1(double x);
+int main(int argc,char** argv)
+{
+    double degrees, radians;
+    std::cout << "Enter angle in degrees ";
+    std::cin >> degrees;
+    // Trigonometric functions accept angles in radians
+    radians = degrees * PI / 180.0;
+    std::cout << "Value of trigonometric ratios " << std::endl;
+    std::cout << "cos(radians) = " << std::setprecision(3)
+              << cos_1(radians) << std::endl;
+    std::cout << "sin(radians) = " << std::setprecision(3)
+              << sin_1(radians) << std::endl;
+    std::cout << "tan(radians) = " << std::setprecision(3)
+              << tan_1(radians) << std::endl;
+               return  0;
+}
+
+double cos_1(double x)
+{
+    double value;
+    value = 1-((x*x)/2)+((x*x*x*x)/24);
+    return value;
+}
+
+double sin_1(double x)
+{
+    double value;
+    value = x-((x*x*x)/6)+((x*x*x*x*x)/120);
+    return value;
+}
+
+double tan_1(double x)
+{
+    double value;
+    value=sin_1(x)/cos_1(x);
+    return value;
+}
